@@ -69,16 +69,14 @@ public class CocinaService {
 
     private Despensa verifyAvaReceta(Integer recetaNumber) {
         Receta receta = this.recetas[recetaNumber-1];
-        Despensa ingredientesDisp = this.despensa;
         Despensa ingredientesFaltantes = new Despensa();
         for (Ingrediente ingrediente: receta.getIngredientes()) {
-            int remainingUnits = 0;
             try {
-                String remainingUnitsString = ingredientesDisp.getIngrediente(ingrediente.getNombre(), ingrediente.getCantidad());
-                remainingUnits = Integer.parseInt(remainingUnitsString.split("\\s+")[1]);
-            } catch (NotEnoughStockException e) {
-                ingrediente.setCantidad(ingrediente.getCantidad()-remainingUnits);
-                ingredientesFaltantes.addIngrediente(ingrediente);
+                Ingrediente ingredienteDisp = this.despensa.inspectIngrediente(ingrediente.getNombre());
+                if (ingredienteDisp.getCantidad() < ingrediente.getCantidad()) {
+                    ingrediente.setCantidad(ingrediente.getCantidad()-ingredienteDisp.getCantidad());
+                    ingredientesFaltantes.addIngrediente(ingrediente);
+                }
             } catch (InvalidIngredientException e) {
                 ingredientesFaltantes.addIngrediente(ingrediente);
             }

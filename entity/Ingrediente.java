@@ -40,7 +40,7 @@ public class Ingrediente {
             this.cantidad = this.cantidad - amount;
             return String.format("Remaining units: %d", this.cantidad);
         } else {
-            throw new NotEnoughStockException("Not enough remaining units, available: "+this.cantidad);
+            throw new NotEnoughStockException("Not enough remaining units of "+this.nombre+", available: "+this.cantidad);
         }
     }
 }

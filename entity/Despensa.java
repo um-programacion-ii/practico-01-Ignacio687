@@ -40,10 +40,15 @@ public class Despensa {
     }
 
     public void addIngrediente(Ingrediente ingrediente) {
-        Ingrediente[] newIngredientes = new Ingrediente[this.ingredientes.length+1];
-        System.arraycopy(this.ingredientes, 0, newIngredientes, 0, this.ingredientes.length);
-        newIngredientes[this.ingredientes.length] = ingrediente;
-        this.ingredientes = newIngredientes;
+        try {
+            Ingrediente ingredienteDisp = this.inspectIngrediente(ingrediente.getNombre());
+            ingredienteDisp.setCantidad(ingredienteDisp.getCantidad()+ingrediente.getCantidad());
+        } catch (InvalidIngredientException e) {
+            Ingrediente[] newIngredientes = new Ingrediente[this.ingredientes.length + 1];
+            System.arraycopy(this.ingredientes, 0, newIngredientes, 0, this.ingredientes.length);
+            newIngredientes[this.ingredientes.length] = ingrediente;
+            this.ingredientes = newIngredientes;
+        }
     }
 
     public String getIngrediente(String name, int amount) throws NotEnoughStockException, InvalidIngredientException {
@@ -53,5 +58,14 @@ public class Despensa {
             }
         }
         throw new InvalidIngredientException("The ingredient doesn't exist.");
+    }
+
+    public Ingrediente inspectIngrediente(String name) throws InvalidIngredientException {
+        for (Ingrediente ingrediente : ingredientes) {
+            if (ingrediente.getNombre().trim().equalsIgnoreCase(name.trim())) {
+                return ingrediente;
+            }
+        }
+        throw new InvalidIngredientException("The ingredient "+name+" doesn't exist.");
     }
 }

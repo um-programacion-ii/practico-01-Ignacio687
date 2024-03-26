@@ -67,6 +67,9 @@ public class Main {
         System.out.println("\nPunto4:\n");
         System.out.print("\u001B[0m");
         Chef chef = new Chef("Fernando", 2);
+        for (Ingrediente ingrediente: fideos.getIngredientes()) {
+            despensa.addIngrediente(new Ingrediente(ingrediente.getNombre(), ingrediente.getCantidad()));
+        }
         for (Ingrediente ingrediente: pizza.getIngredientes()) {
             despensa.addIngrediente(new Ingrediente(ingrediente.getNombre(), ingrediente.getCantidad()));
         }
@@ -76,9 +79,13 @@ public class Main {
         CocinaService cocinaService = new CocinaService(despensa, new Receta[]{ensalada, fideos, huevoDuro, pizza});
         System.out.println("El chef "+ chef + " va a preparar tres de las siguientes recetas:");
         System.out.println(cocinaService.showRecetas());
-        System.out.println("Preparación receta 3:  ");
         try {
-            System.out.println(cocinaService.makeReceta(3));
+            Integer[] recetasArray = {2,4,1,4};
+            for (Integer receta: recetasArray) {
+                System.out.println("\nPreparación receta "+receta+":  ");
+                System.out.println(cocinaService.makeReceta(receta));
+                System.out.println(cocinaService.getDespensa());
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
