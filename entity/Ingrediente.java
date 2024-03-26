@@ -32,10 +32,7 @@ public class Ingrediente {
 
     @Override
     public String toString() {
-        return "Ingrediente{" +
-                "nombre='" + nombre + '\'' +
-                ", cantidad=" + cantidad +
-                '}';
+        return nombre + "  Cantidad: "+cantidad;
     }
 
     public String sacar(int amount) throws NotEnoughStockException {

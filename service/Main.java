@@ -12,6 +12,7 @@ public class Main {
         System.out.print("\u001B[31m");
         System.out.println("Punto1:\n");
         System.out.print("\u001B[0m");
+        System.out.println("Ingredientes:");
         String[] ingredientesNames = {"papa", "harina", "queso", "leche", "huevo"};
         Ingrediente[] ingredientes = new Ingrediente[5];
         for (int counter = 0; counter < 5; counter++) {

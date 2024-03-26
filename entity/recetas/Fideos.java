@@ -8,7 +8,7 @@ public class Fideos extends Receta{
         this.tiempoCoccion = 10;
         Object[][] ingredientes = {{"fideos", 1}, {"agua", 1}, {"sal", 1}};
         this.setDefaultIngredients(ingredientes);
-        this.preparacion = "Preparación de fideos: Hervir agua en una olla. Agregar sal al agua hirviendo. Añadir los fideos y cocinar durante 10 minutos. Escurrir y servir caliente.";
+        this.preparacion = "Hervir agua en una olla. Agregar sal al agua hirviendo. Añadir los fideos y cocinar durante 10 minutos. Escurrir y servir caliente.";
     }
 
     public Fideos(Integer tiempoCoccion, Ingrediente[] ingredientes, String preparacion) {
