@@ -1,5 +1,7 @@
 package entity;
 
+import entity.customExceptions.NotEnoughStockException;
+
 public class Ingrediente {
     private String nombre;
     private Integer cantidad;

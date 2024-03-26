@@ -1,12 +1,14 @@
 package service;
 
 import entity.Ingrediente;
-import entity.InvalidIngredientException;
-import entity.NotEnoughStockException;
+import entity.customExceptions.NotEnoughStockException;
 import entity.Despensa;
+import entity.recetas.*;
+
 
 public class Main {
     public static void main (String[] args) {
+        // ################ PUNTO 1 ################
         System.out.print("\u001B[31m");
         System.out.println("Punto1:\n");
         System.out.print("\u001B[0m");
@@ -17,6 +19,7 @@ public class Main {
             ingredientes[counter] = ingrediente;
             System.out.println(ingrediente);
         }
+        // ################ PUNTO 2 ################
         System.out.print("\u001B[31m");
         System.out.println("\nPunto2:\n");
         System.out.print("\u001B[0m");
@@ -47,5 +50,15 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        // ################ PUNTO 3 ################
+        System.out.print("\u001B[31m");
+        System.out.println("\nPunto3:\n");
+        System.out.print("\u001B[0m");
+        System.out.println("Creando las clases Receta: ");
+        Receta huevoDuro = new HuevoDuro();
+        Receta pizza = new Pizza();
+        Receta ensalada = new Ensalada();
+        Receta fideos = new Fideos();
+        System.out.println(huevoDuro+"\n\n"+pizza+"\n\n"+ensalada+"\n\n"+fideos);
     }
 }

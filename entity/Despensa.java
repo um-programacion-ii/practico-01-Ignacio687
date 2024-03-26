@@ -1,5 +1,8 @@
 package entity;
 
+import entity.customExceptions.InvalidIngredientException;
+import entity.customExceptions.NotEnoughStockException;
+
 public class Despensa {
     private Ingrediente[] ingredientes;
 
