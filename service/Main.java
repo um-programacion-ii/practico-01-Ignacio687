@@ -1,5 +1,6 @@
 package service;
 
+import entity.Chef;
 import entity.Ingrediente;
 import entity.customExceptions.NotEnoughStockException;
 import entity.Despensa;
@@ -61,5 +62,26 @@ public class Main {
         Receta ensalada = new Ensalada();
         Receta fideos = new Fideos();
         System.out.println(huevoDuro+"\n\n"+pizza+"\n\n"+ensalada+"\n\n"+fideos);
+        // ################ PUNTO 4 ################
+        System.out.print("\u001B[31m");
+        System.out.println("\nPunto4:\n");
+        System.out.print("\u001B[0m");
+        Chef chef = new Chef("Fernando", 2);
+        for (Ingrediente ingrediente: pizza.getIngredientes()) {
+            despensa.addIngrediente(new Ingrediente(ingrediente.getNombre(), ingrediente.getCantidad()));
+        }
+        for (Ingrediente ingrediente: ensalada.getIngredientes()) {
+            despensa.addIngrediente(new Ingrediente(ingrediente.getNombre(), ingrediente.getCantidad()));
+        }
+        CocinaService cocinaService = new CocinaService(despensa, new Receta[]{ensalada, fideos, huevoDuro, pizza});
+        System.out.println("El chef "+ chef + " va a preparar tres de las siguientes recetas:");
+        System.out.println(cocinaService.showRecetas());
+        System.out.println("Preparación receta 3:  ");
+        try {
+            System.out.println(cocinaService.makeReceta(3));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

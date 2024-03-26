@@ -41,9 +41,8 @@ public abstract class Receta {
                 ingredientes.append("\n").append(this.ingredientes[counter]);
             }
         }
-        return this.getClass().getSimpleName()+" {" +
-                "tiempoCoccion= " + tiempoCoccion +" m"+
-                ", ingredientes=" + ingredientes +
+        return this.getClass().getSimpleName()+", tiempoCoccion: " + tiempoCoccion +" m"+
+                ", ingredientes:" + ingredientes +
                 ", \npreparacion= " + preparacion +"}";
     }
     protected void setDefaultIngredients(Object[][] ingredientes) {

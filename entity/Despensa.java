@@ -24,6 +24,10 @@ public class Despensa {
 
     @Override
     public String toString() {
+        return "Ingredientes en despensa:" + this.showIngredientes();
+    }
+
+    public StringBuilder showIngredientes() {
         StringBuilder ingredientes = new StringBuilder();
         for (int counter = 0; counter < this.ingredientes.length; counter++) {
             if (counter < this.ingredientes.length-1) {
@@ -32,9 +36,7 @@ public class Despensa {
                 ingredientes.append("\n").append(this.ingredientes[counter]);
             }
         }
-        return "Despensa{" +
-                "ingredientes=" + ingredientes +
-                '}';
+        return ingredientes;
     }
 
     public void addIngrediente(Ingrediente ingrediente) {
