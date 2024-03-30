@@ -40,6 +40,8 @@ public class Main {
         System.out.println("\nCrear despensa e incluir los ingredientes:");
         Despensa despensa = new Despensa();
         for (Ingrediente ingrediente: ingredientes) {
+            System.out.println(despensa);
+            System.out.println("Añadiendo "+ingrediente+"\n");
             despensa.addIngrediente(ingrediente);
         }
         System.out.println(despensa);
